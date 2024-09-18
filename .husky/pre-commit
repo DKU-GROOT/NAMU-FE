@@ -1,0 +1,4 @@
+echo "🔍 commit 전 lint 규칙 적용 중..."
+pnpm eslint src --fix --max-warnings 0
+pnpm prettier --write src
+git add .
