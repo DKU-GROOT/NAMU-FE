@@ -17,6 +17,7 @@
     ]
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.15.5",
     "next": "14.2.12",
     "react": "^18",
     "react-dom": "^18"
@@ -25,6 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vanilla-extract/next-plugin": "^2.4.5",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.12",
     "eslint-config-prettier": "^9.1.0",

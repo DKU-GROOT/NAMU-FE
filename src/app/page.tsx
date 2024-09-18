@@ -1,3 +1,5 @@
+import { container } from "./styles.css";
+
 export default function Home() {
-  return <></>;
+  return <div className={container}>hello</div>;
 }
