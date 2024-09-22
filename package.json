@@ -10,7 +10,7 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,css}": [
+    "*.{ts,tsx,js,jsx}": [
       "pnpm eslint src --fix --max-warnings 0",
       "pnpm prettier --write src",
       "git add ."
