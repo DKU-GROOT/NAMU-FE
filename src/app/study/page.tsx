@@ -12,8 +12,8 @@ export default function Page() {
           <p>나무를 키우며 무한한 성장을 경험해보세요.</p>
         </div>
       </header>
-      <main className={styles.main}>
-        <section className={styles.treeSection}>
+      <div className={styles.main}>
+        <aside className={styles.treeSection}>
           <div className={styles.treeWrapper} />
           <button className={styles.treeGrowthButton}>
             <span>
@@ -26,9 +26,25 @@ export default function Page() {
             </span>
             <span className={styles.treeGrowthButtonPoint}>150P</span>
           </button>
-        </section>
-        <section className={styles.listSection}></section>
-      </main>
+        </aside>
+        <div className={styles.listSection}>
+          <section className={styles.planSection}>
+            <header className={styles.sectionHeader}>
+              <h3>오늘의 계획</h3>
+              <div>
+                <button>계획 목록</button>
+                <button>편집</button>
+              </div>
+            </header>
+            <ul>
+              <li>
+                <input type="checkbox" /> [컴퓨터 네트워크] 네트워크 유형
+                학습하기
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </>
   );
 }

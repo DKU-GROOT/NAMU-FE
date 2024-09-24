@@ -63,6 +63,10 @@ export const styles = {
   }),
 
   listSection: style({}),
+
+  planSection: style({}),
+
+  sectionHeader: style({}),
 };
 
 globalStyle(`${styles.header} p`, {
