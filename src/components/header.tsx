@@ -17,7 +17,6 @@ const Header = () => {
           </ul>
         </nav>
       </div>
-      <hr></hr>
     </header>
   );
 };
