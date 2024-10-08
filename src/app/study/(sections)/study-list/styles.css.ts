@@ -13,24 +13,8 @@ export const radioButton = style({
   },
 });
 
-export const studyListItem = style({
-  border: "1px solid #93D092",
-  borderRadius: 12,
+export const studyListContainer = style({
   display: "flex",
-  padding: 12,
-  alignItems: "center",
-  gap: 16,
-});
-
-export const studyListThumbnail = style({
-  width: 100,
-  height: 100,
-  backgroundColor: "#F3F3F3",
-  borderRadius: 10,
-});
-
-export const studyListItemInfo = style({
-  display: "flex",
-  gap: 8,
   flexDirection: "column",
+  gap: 15,
 });

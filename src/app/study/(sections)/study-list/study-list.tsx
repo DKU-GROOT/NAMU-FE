@@ -1,3 +1,6 @@
+import StudyListItem from "@/components/study-list-item/study-list-item";
+import { studyList } from "@/mocks/study-list";
+
 import * as common from "../../styles.css";
 import * as styles from "./styles.css";
 
@@ -33,18 +36,10 @@ export default function StudyListSection() {
           </label>
         </div>
       </header>
-      <ul>
-        <li className={styles.studyListItem}>
-          <div className={styles.studyListThumbnail} />
-          <div className={styles.studyListItemInfo}>
-            <p>컴퓨터 네트워크</p>
-            <p>최근 수강일 24.09.03</p>
-            <div>
-              <span>50</span>
-              <span>27</span>
-            </div>
-          </div>
-        </li>
+      <ul className={styles.studyListContainer}>
+        {studyList.map((props) => (
+          <StudyListItem key={props.id} {...props} />
+        ))}
       </ul>
     </section>
   );
