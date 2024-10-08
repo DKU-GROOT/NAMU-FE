@@ -1,16 +1,22 @@
 "use client";
 
-import { FaPlus } from "react-icons/fa6";
-
 import useModal from "@/hooks/useModal";
 
+import PlanBox from "../../(components)/plan-box/plan-box";
+import { plans } from "../../(components)/plan-box/plans";
 import * as common from "../../styles.css";
+import { planHistory } from "./plan-history";
 import * as styles from "./styles.css";
 
 export default function PlanSection() {
   const { open } = useModal();
   const handlePlanListButtonClick = () => {
-    open({ content: "test" });
+    open({
+      title: "계획",
+      content: planHistory.map((item) => (
+        <PlanBox key={item.date} planData={item} />
+      )),
+    });
   };
   return (
     <section className={styles.planSection}>
@@ -21,23 +27,7 @@ export default function PlanSection() {
           <button>편집</button>
         </div>
       </header>
-      <ul className={styles.planList}>
-        <li>
-          <label>
-            <input type="checkbox" /> [컴퓨터 네트워크] 네트워크 유형 학습하기
-          </label>
-        </li>
-        <div className={styles.planInputSection}>
-          <input
-            type="text"
-            placeholder="오늘의 계획을 작성해주세요"
-            className={styles.planInput}
-          />
-          <button className={styles.planButton}>
-            <FaPlus />
-          </button>
-        </div>
-      </ul>
+      <PlanBox planData={plans} enterMode />
     </section>
   );
 }

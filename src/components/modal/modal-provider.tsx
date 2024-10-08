@@ -6,12 +6,12 @@ import { createPortal } from "react-dom";
 import { useModalStateStore } from "@/hooks/stores/useModalStateStore";
 
 import Modal from "./modal";
-import { styles } from "./styles.css";
+import * as styles from "./styles.css";
 
 export default function ModalProvider({ children }: { children: ReactNode }) {
   const [portalElement, setPortalElement] = useState<HTMLElement | null>(null);
   const {
-    modalState: { visible, content },
+    modalState: { visible, content, title },
   } = useModalStateStore();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
     ? createPortal(
         <>
           <div className={styles.wrapper}>
-            <Modal content={content} />
+            <Modal title={title} content={content} />
           </div>
           {children}
         </>,

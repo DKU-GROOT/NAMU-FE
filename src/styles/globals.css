@@ -38,6 +38,7 @@ a {
 button {
   border: none;
   cursor: pointer;
+  background-color: transparent;
 }
 input {
   border: 0;
