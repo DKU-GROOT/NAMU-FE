@@ -3,17 +3,6 @@ import { globalStyle, style } from "@vanilla-extract/css";
 import TreeImage from "../../assets/images/Tree.png";
 
 export const styles = {
-  header: style({
-    padding: 40,
-    backgroundColor: "#F6FBF4",
-  }),
-
-  headerContent: style({
-    minWidth: 1100,
-    width: "60vw",
-    margin: "0 auto",
-  }),
-
   main: style({
     display: "flex",
     minWidth: 1100,
@@ -148,12 +137,6 @@ export const styles = {
     flexDirection: "column",
   }),
 };
-
-globalStyle(`${styles.header} p`, {
-  marginTop: 10,
-  fontSize: 18,
-  color: "#5C5C5C",
-});
 
 globalStyle(`${styles.treeGrowthButton} span`, {
   lineHeight: "25px",

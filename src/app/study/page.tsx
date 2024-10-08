@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import PageHeader from "@/components/page-header/page-header";
+
 import SparkleIcon from "../../assets/images/SparkleIcon.png";
 import PlanSection from "./(sections)/plan/plan";
 import { styles } from "./styles.css";
@@ -7,12 +9,10 @@ import { styles } from "./styles.css";
 export default function Page() {
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1>내 공부</h1>
-          <p>나무를 키우며 무한한 성장을 경험해보세요.</p>
-        </div>
-      </header>
+      <PageHeader
+        title="내 공부"
+        desc="나무를 키우며 무한한 성장을 경험해보세요."
+      />
       <div className={styles.main}>
         <aside className={styles.treeSection}>
           <div className={styles.treeWrapper} />
