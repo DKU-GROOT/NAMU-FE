@@ -39,6 +39,16 @@ button {
   border: none;
   cursor: pointer;
 }
+input {
+  border: 0;
+  &:focus {
+    outline: none;
+  }
+}
+
+li {
+  list-style: none;
+}
 
 @media (prefers-color-scheme: dark) {
   html {
