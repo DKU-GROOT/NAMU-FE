@@ -1,10 +1,18 @@
+"use client";
+
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa6";
+
+import useModal from "@/hooks/useModal";
 
 import SparkleIcon from "../../assets/images/SparkleIcon.png";
 import { styles } from "./styles.css";
 
 export default function Page() {
+  const { open } = useModal();
+  const handlePlanListButtonClick = () => {
+    open({ content: "test" });
+  };
   return (
     <>
       <header className={styles.header}>
@@ -33,7 +41,7 @@ export default function Page() {
             <header className={styles.sectionHeader}>
               <h3>오늘의 계획</h3>
               <div className={styles.buttonContainer}>
-                <button>계획 목록</button>
+                <button onClick={handlePlanListButtonClick}>계획 목록</button>
                 <button>편집</button>
               </div>
             </header>
