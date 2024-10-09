@@ -38,17 +38,6 @@ a {
 button {
   border: none;
   cursor: pointer;
-  background-color: transparent;
-}
-input {
-  border: 0;
-  &:focus {
-    outline: none;
-  }
-}
-
-li {
-  list-style: none;
 }
 
 @media (prefers-color-scheme: dark) {
