@@ -3,6 +3,8 @@ import "../styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
+import ModalProvider from "@/components/modal/modal-provider";
+
 import Header from "../components/header";
 
 const geistSans = localFont({
@@ -25,8 +27,11 @@ const Layout = (props: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
-        <main>{props.children}</main>
+        <main>
+          <Header />
+          <ModalProvider>{props.children}</ModalProvider>
+          <div id="modal-root" />
+        </main>
       </body>
     </html>
   );
