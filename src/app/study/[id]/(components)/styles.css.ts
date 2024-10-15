@@ -51,3 +51,8 @@ globalStyle(`${info} span`, {
   alignItems: "center",
   gap: 6,
 });
+
+export const buttonContainer = style({
+  display: "flex",
+  gap: 10,
+});

@@ -4,14 +4,17 @@ import { TfiBook } from "react-icons/tfi";
 
 import { StudyListItemProps } from "@/types/study";
 
-import { button } from "../styles.css";
+import { button } from "../test/styles.css";
 import * as styles from "./styles.css";
 
 export default function HeaderContent({
   title,
   scrap,
   like,
-}: Pick<StudyListItemProps, "title" | "scrap" | "like">) {
+  buttonInfoList,
+}: Pick<StudyListItemProps, "title" | "scrap" | "like"> & {
+  buttonInfoList: { name: string; link: string }[];
+}) {
   const route = useRouter();
 
   return (
@@ -33,14 +36,19 @@ export default function HeaderContent({
           </div>
         </div>
       </div>
-      <button
-        className={button()}
-        onClick={() => {
-          route.push("/study/0");
-        }}
-      >
-        나가기
-      </button>
+      <div className={styles.buttonContainer}>
+        {buttonInfoList.map((buttonInfo) => (
+          <button
+            key={buttonInfo.link}
+            className={button()}
+            onClick={() => {
+              route.push(buttonInfo.link);
+            }}
+          >
+            {buttonInfo.name}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
