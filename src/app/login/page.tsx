@@ -1,4 +1,5 @@
-import { styles } from "./styles.css"; // 스타일 가져오기
+import { styles } from "./styles.css";
+import { handleKakaoLogin, handleNaverLogin } from "./utils/auth";
 
 export default function Home() {
   return (
@@ -11,7 +12,6 @@ export default function Home() {
                 <header>
                   <p className={styles.hStyle}>이메일 로그인</p>
                 </header>
-
                 <div className={styles.inputGroup}>
                   <div className={styles.inputWrapper}>
                     <input
@@ -52,10 +52,18 @@ export default function Home() {
               <button className={styles.googleButton} type="button">
                 Google 계정
               </button>
-              <button className={styles.kakaoButton} type="button">
+              <button
+                className={styles.kakaoButton}
+                type="button"
+                onClick={handleKakaoLogin}
+              >
                 카카오 계정
               </button>
-              <button className={styles.naverButton} type="button">
+              <button
+                className={styles.naverButton}
+                type="button"
+                onClick={handleNaverLogin}
+              >
                 네이버 계정
               </button>
             </div>
