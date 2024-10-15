@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GoThumbsup } from "react-icons/go";
 import { TfiBook } from "react-icons/tfi";
 
-import { studyListItem } from "@/types/study";
+import { StudyListItemProps } from "@/types/study";
 
 import * as styles from "./styles.css";
 
@@ -12,7 +12,7 @@ export default function StudyListItem({
   date,
   scrap,
   like,
-}: studyListItem) {
+}: StudyListItemProps) {
   return (
     <Link href={`/study/${id}`} className={styles.studyListItem}>
       <div className={styles.studyListThumbnail} />
