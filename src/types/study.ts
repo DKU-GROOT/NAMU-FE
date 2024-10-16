@@ -1,4 +1,4 @@
-export interface studyListItem {
+export interface StudyListItemProps {
   id: number;
   title: string;
   date: string;
