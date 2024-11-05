@@ -10,7 +10,7 @@ const KakaoCallback = () => {
     const exchangeToken = async () => {
       if (code) {
         try {
-          await axios.post("/api/v1/auth/social-login", {
+          await axios.post("/api/v1/auth/sign-in", {
             code: code,
             provider: "kakao",
           });
