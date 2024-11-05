@@ -19,6 +19,7 @@
   "dependencies": {
     "@vanilla-extract/css": "^1.15.5",
     "axios": "^1.7.7",
+    "axios-mock-adapter": "^2.1.0",
     "next": "14.2.12",
     "pnpm": "^9.12.0",
     "react": "^18",
