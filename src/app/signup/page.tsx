@@ -189,6 +189,24 @@ export default function Home() {
                 </header>
 
                 <div className={styles.inputGroup}>
+                  <input
+                    className={styles.inputStyle}
+                    type="text"
+                    placeholder="닉네임을 입력해주세요"
+                    name="nickname"
+                    value={nickname}
+                    onChange={handleNicknameChange}
+                    required
+                  />
+                  <input
+                    className={styles.inputStyle}
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    name="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    required
+                  />
                   <div className={styles.emailWrapper}>
                     <input
                       className={styles.inputStyle}
@@ -211,16 +229,6 @@ export default function Home() {
 
                   <input
                     className={styles.inputStyle}
-                    type="password"
-                    placeholder="비밀번호를 입력해주세요"
-                    name="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                    required
-                  />
-
-                  <input
-                    className={styles.inputStyle}
                     type="text"
                     placeholder="이메일 인증번호를 입력해주세요."
                     name="verificationCode"
@@ -228,15 +236,7 @@ export default function Home() {
                     onChange={handleCertificationNumberChange}
                     required
                   />
-                  <input
-                    className={styles.inputStyle}
-                    type="text"
-                    placeholder="닉네임을 입력해주세요"
-                    name="nickname"
-                    value={nickname}
-                    onChange={handleNicknameChange}
-                    required
-                  />
+
                   <input
                     className={styles.buttonStyle}
                     type="button"
