@@ -1,8 +1,11 @@
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 import { styles } from "../styles.css";
 
 const ChatHeader = () => {
+  const route = useRouter();
+  const pathname = usePathname();
   return (
     <header className={styles.chatheader}>
       <div className={styles.subjectinfo}>
@@ -12,7 +15,16 @@ const ChatHeader = () => {
           <span>💬 27</span>
         </div>
       </div>
-      <button className={styles.endstudybtn}>학습 종료</button>
+      {pathname === "/chat" && (
+        <button
+          className={styles.endstudybtn}
+          onClick={() => {
+            route.push("/chat/summary");
+          }}
+        >
+          학습 종료
+        </button>
+      )}
     </header>
   );
 };

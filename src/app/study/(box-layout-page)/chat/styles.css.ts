@@ -145,4 +145,16 @@ export const styles = {
     boxShadow: "0px 0px 15px rgba(0, 0, 0, 0.1)",
     border: "1px solid #93D092",
   }),
+
+  summaryArea: style({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    gap: "10px",
+    padding: "15px 20px",
+    borderRadius: "10px",
+    height: "400px",
+    overflowY: "auto",
+    backgroundColor: "#F6FBF4",
+  }),
 };

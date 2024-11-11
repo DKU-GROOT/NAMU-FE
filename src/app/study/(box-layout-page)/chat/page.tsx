@@ -3,10 +3,8 @@
 import React, { useState } from "react";
 
 import ChatArea from "./(components)/chat-area";
-import ChatHeader from "./(components)/chat-header";
 import MessageInput from "./(components)/messageinput";
 import { sendMessageToApi } from "./(services)/chatapi";
-import { styles } from "./styles.css";
 
 export default function Home() {
   const [chat, setChat] = useState<Array<{ role: string; content: string }>>(
@@ -37,10 +35,9 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
-      <ChatHeader />
+    <>
       <ChatArea chat={chat} loading={loading} /> {}
       <MessageInput onSendMessage={handleSendMessage} loading={loading} />
-    </div>
+    </>
   );
 }
