@@ -1,28 +1,44 @@
 import { FaPlus } from "react-icons/fa6";
 
-import { PlanData } from "@/types/plan";
+import { CheckListResponse } from "@/types/check-list";
 
 import * as styles from "./styles.css";
+
+const checkListKeys = [
+  "checkList1",
+  "checkList2",
+  "checkList3",
+  "checkList4",
+  "checkList5",
+] as const;
 
 export default function PlanBox({
   planData,
   enterMode,
 }: {
-  planData: PlanData;
+  planData?: CheckListResponse;
   enterMode?: boolean;
 }) {
   return (
     <div>
-      {enterMode || <p className={styles.date}>{planData.date}</p>}
+      {/* {enterMode || <p className={styles.date}>{planData.date}</p>} */}
       <div className={styles.container}>
         <ul className={styles.planList}>
-          {planData.list.map(({ id, content, checked }) => (
-            <li key={id}>
-              <label>
-                <input type="checkbox" checked={checked} /> {content}
-              </label>
-            </li>
-          ))}
+          {planData &&
+            checkListKeys.map(
+              (item, index) =>
+                planData[item] && (
+                  <li key={index}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={planData[`${item}Complete`]}
+                      />
+                      {planData[item]}
+                    </label>
+                  </li>
+                ),
+            )}
         </ul>
         {enterMode && (
           <div className={styles.planInputSection}>
