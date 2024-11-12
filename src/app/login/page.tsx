@@ -3,20 +3,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+import { LoginResponse } from "../../types/login";
 import { styles } from "./styles.css";
 import { handleKakaoLogin, handleNaverLogin } from "./utils/social-auth";
-
-// 응답 데이터 타입 정의
-interface LoginResponse {
-  code: string;
-  message: string;
-  token: string;
-  expirationTime: number;
-  nickname: string;
-  point: number;
-  treeLevel: number;
-  notice: boolean;
-}
 
 export default function Home() {
   const [inputId, setInputId] = useState("");
@@ -56,11 +45,12 @@ export default function Home() {
         if (res.data.code == "SU") {
           console.log("로그인 성공");
 
-          sessionStorage.setItem("token", res.data.token);
-          sessionStorage.setItem(
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem(
             "expirationTime",
             res.data.expirationTime.toString(),
           );
+          localStorage.setItem("email", inputId);
 
           document.location.href = "/";
         } else {

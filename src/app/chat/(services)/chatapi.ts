@@ -1,23 +1,31 @@
 import axios from "axios";
 
-export const sendMessageToApi = async (message: string): Promise<string> => {
+import { StudyResponse } from "../../../types/chatgpt";
+
+export const sendMessageToApi = async (
+  message: string,
+  email: string,
+): Promise<string> => {
   try {
-    const apiKey = process.env.NEXT_PUBLIC_CHAT_API_KEY;
-    const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
+    const response = await axios.post<StudyResponse>(
+      "http://localhost:4040/namu/v2/study/ask",
       {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: message }],
+        email: email,
+        subjectName: "자료구조",
+        question: message,
       },
       {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
       },
     );
 
-    return response.data.choices[0].message.content;
+    if (response.data.code === "SU") {
+      return response.data.answer;
+    } else {
+      throw new Error("Error: " + response.data.message);
+    }
   } catch (error) {
     console.error("API 호출 중 오류 발생:", error);
     throw new Error("서버 응답에 문제가 있습니다.");
