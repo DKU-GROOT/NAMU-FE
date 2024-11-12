@@ -1,6 +1,6 @@
 import React from "react";
 
-import { styles } from "../styles.css";
+import { styles } from "../../(box-layout-page)/chat/styles.css";
 
 interface ChatAreaProps {
   chat: Array<{ role: string; content: string }>;

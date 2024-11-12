@@ -2,27 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 
-import ChatArea from "./(components)/chat-area";
-import MessageInput from "./(components)/messageinput";
-import { sendMessageToApi } from "./(services)/chatapi";
-import { styles } from "./styles.css";
+import { sendMessageToApi } from "@/api/chat";
+import ChatArea from "@/app/study/(components)/chat-box/chat-area";
+import MessageInput from "@/app/study/(components)/chat-box/messageinput";
+//
 
 export default function Home() {
-  const [email, setEmail] = useState<string>(""); // 이메일 상태 관리
+  const [email, setEmail] = useState<string>("");
   const [chat, setChat] = useState<Array<{ role: string; content: string }>>(
     [],
-  ); // 채팅 기록
-  const [loading, setLoading] = useState<boolean>(false); // 로딩 상태
+  );
+  const [loading, setLoading] = useState<boolean>(false);
 
-  // 컴포넌트가 마운트될 때 로컬 저장소에서 이메일 불러오기
   useEffect(() => {
     const storedEmail = localStorage.getItem("email");
     if (storedEmail) {
-      setEmail(storedEmail); // 로컬 저장소에서 이메일을 가져와 상태 설정
+      setEmail(storedEmail);
     }
   }, []);
 
-  // 이메일 상태 확인용 useEffect
   useEffect(() => {
     console.log("초기 이메일 상태:", email);
   }, [email]);
@@ -37,7 +35,7 @@ export default function Home() {
       setLoading(true);
       console.log("handleSendMessage 함수 내 이메일 상태:", email);
 
-      const botReply = await sendMessageToApi(message, email); // API 호출
+      const botReply = await sendMessageToApi(email, message);
 
       setChat((prevChat) => [...prevChat, { role: "bot", content: botReply }]);
     } catch (error) {
@@ -51,18 +49,10 @@ export default function Home() {
     }
   };
 
-  const checkEmail = () => {
-    console.log("버튼 클릭으로 확인된 이메일 상태:", email);
-    alert(`현재 이메일 상태: ${email}`);
-  };
-
   return (
     <>
       <ChatArea chat={chat} loading={loading} />
       <MessageInput onSendMessage={handleSendMessage} loading={loading} />
-      <button onClick={checkEmail} className={styles.checkEmailButton}>
-        이메일 상태 확인
-      </button>
     </>
   );
 }

@@ -1,5 +1,6 @@
 export interface StudyResponse {
+  answer: string;
   code: string;
   message: string;
-  answer: string;
+  choice: string;
 }

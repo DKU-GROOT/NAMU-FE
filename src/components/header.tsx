@@ -19,6 +19,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.clear();
     setIsLoggedIn(false);
+    window.location.href = "/";
   };
 
   return (
