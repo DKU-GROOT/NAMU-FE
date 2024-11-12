@@ -157,4 +157,22 @@ export const styles = {
     overflowY: "auto",
     backgroundColor: "#F6FBF4",
   }),
+  checkEmailButton: style({
+    backgroundColor: "#4CAF50",
+    color: "white",
+    padding: "10px 15px",
+    border: "none",
+    borderRadius: "10px",
+    cursor: "pointer",
+    fontSize: "16px",
+    transition: "background-color 0.2s",
+    marginLeft: "10px", // 왼쪽 여백 추가 (입력란 옆에 위치할 때)
+    ":hover": {
+      backgroundColor: "#43A047",
+    },
+    ":disabled": {
+      backgroundColor: "#CCCCCC",
+      cursor: "not-allowed",
+    },
+  }),
 };

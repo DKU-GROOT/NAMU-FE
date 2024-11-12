@@ -3,22 +3,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+import {
+  EmailcheckResponse,
+  EmailResponse,
+  SignupResponse,
+} from "../../types/signup";
 import { styles } from "./styles.css";
-
-interface EmailResponse {
-  code: string;
-  message: string;
-}
-
-interface EmailcheckResponse {
-  code: string;
-  message: string;
-}
-
-interface SignupResponse {
-  code: string;
-  message: string;
-}
 
 export default function Home() {
   const [nickname, setNickname] = useState("");

@@ -31,4 +31,19 @@ export const styles = {
     marginLeft: "30px",
     color: "black",
   }),
+
+  button: style({
+    padding: "3px 16px",
+    backgroundColor: "#F3F3F3",
+    color: "#000000",
+    border: "none",
+    borderRadius: "44px",
+    cursor: "pointer",
+    fontSize: "14px",
+    transition: "background-color 0.3s ease",
+    ":hover": {
+      backgroundColor: "#0056b3",
+      color: "#ffffff",
+    },
+  }),
 };
