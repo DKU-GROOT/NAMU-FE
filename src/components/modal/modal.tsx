@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 import { RxCross2 } from "react-icons/rx";
 
@@ -15,7 +16,29 @@ export default function Modal({
 }) {
   const { close } = useModal();
   return (
-    <div className={styles.container}>
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.75,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        transition: {
+          ease: "easeOut",
+          duration: 0.15,
+        },
+      }}
+      exit={{
+        opacity: 0,
+        scale: 0.75,
+        transition: {
+          ease: "easeIn",
+          duration: 0.15,
+        },
+      }}
+      className={styles.container}
+    >
       <div className={styles.header}>
         <p className={styles.title}>{title}</p>
         <button className={styles.crossButton} onClick={close}>
@@ -24,6 +47,6 @@ export default function Modal({
       </div>
       <div className={styles.content}>{content}</div>
       <Button value="닫기" onClick={close} />
-    </div>
+    </motion.div>
   );
 }

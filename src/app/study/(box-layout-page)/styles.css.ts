@@ -14,10 +14,10 @@ export const container = style({
   border: "1px solid #93D092",
   borderRadius: 20,
   height: "90%",
-  overflow: "auto",
   backgroundColor: "#F6FBF4",
+  display: "flex",
+  flexDirection: "column",
+  overflow: "hidden",
 });
 
-export const header = style({
-  backgroundColor: "#fff",
-});
+export const header = style({});

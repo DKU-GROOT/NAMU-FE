@@ -5,9 +5,12 @@ import React, { useEffect, useState } from "react";
 import { sendMessageToApi } from "@/api/chat";
 import ChatArea from "@/app/study/(components)/chat-box/chat-area";
 import MessageInput from "@/app/study/(components)/chat-box/messageinput";
-//
 
-export default function Home() {
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { subjectName: string };
+}) {
   const [email, setEmail] = useState<string>("");
   const [chat, setChat] = useState<Array<{ role: string; content: string }>>(
     [],
@@ -35,7 +38,11 @@ export default function Home() {
       setLoading(true);
       console.log("handleSendMessage 함수 내 이메일 상태:", email);
 
-      const botReply = await sendMessageToApi(email, message);
+      const botReply = await sendMessageToApi(
+        email,
+        message,
+        searchParams.subjectName,
+      );
 
       setChat((prevChat) => [...prevChat, { role: "bot", content: botReply }]);
     } catch (error) {

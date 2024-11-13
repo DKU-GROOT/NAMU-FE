@@ -14,7 +14,10 @@ export default function StudyListItem({
   like,
 }: StudyListItemProps) {
   return (
-    <Link href={`/study/chat?id=${id}`} className={styles.studyListItem}>
+    <Link
+      href={`/study/chat?id=${id}&subjectName=${title}`}
+      className={styles.studyListItem}
+    >
       <div className={styles.studyListThumbnail} />
       <div className={styles.studyListItemInfo}>
         <p className={styles.title}>{title}</p>

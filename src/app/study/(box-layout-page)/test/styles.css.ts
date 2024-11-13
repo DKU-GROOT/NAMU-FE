@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const wrapper = style({
@@ -112,4 +112,18 @@ export const questionIndexButton = recipe({
       },
     },
   },
+});
+
+export const scoreModal = style({
+  height: 300,
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "column",
+  justifyContent: "center",
+  gap: 30,
+  color: "#222",
+});
+
+globalStyle(`${scoreModal} h2`, {
+  marginBottom: 10,
 });

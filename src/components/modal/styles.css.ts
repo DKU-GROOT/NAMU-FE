@@ -20,7 +20,7 @@ export const container = style({
   backgroundColor: "white",
   borderRadius: 10,
   overflow: "hidden",
-  padding: "10px 30px",
+  padding: 30,
   display: "flex",
   flexDirection: "column",
   gap: 10,

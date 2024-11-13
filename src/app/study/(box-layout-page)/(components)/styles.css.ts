@@ -6,6 +6,7 @@ export const container = style({
   padding: "12px 30px 12px 12px",
   alignItems: "center",
   justifyContent: "space-between",
+  backgroundColor: "#fff",
 });
 
 export const studySection = style({

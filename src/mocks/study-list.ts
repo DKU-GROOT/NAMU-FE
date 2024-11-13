@@ -1,5 +1,5 @@
 export const studyList = [
-  { id: 0, title: "컴퓨터 네트워크", date: "24.09.03", like: 50, scrap: 27 },
+  { id: 0, title: "네트워크", date: "24.09.03", like: 50, scrap: 27 },
   { id: 1, title: "자료구조", date: "24.09.05", like: 45, scrap: 19 },
   { id: 2, title: "운영체제", date: "24.09.07", like: 60, scrap: 34 },
   { id: 3, title: "알고리즘", date: "24.09.10", like: 40, scrap: 22 },

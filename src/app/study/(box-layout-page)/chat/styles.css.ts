@@ -70,7 +70,7 @@ export const styles = {
     padding: "15px 20px",
     borderRadius: "10px",
     width: "100%",
-    height: "72%",
+    flex: 1,
     overflowY: "auto",
     backgroundColor: "#F6FBF4",
   }),
@@ -107,7 +107,7 @@ export const styles = {
     marginTop: "10px",
     width: "100%",
     height: "70px",
-    marginBottom: "20px",
+    marginBottom: 10,
   }),
 
   messageinput: style({

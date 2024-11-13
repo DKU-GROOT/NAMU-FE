@@ -3,6 +3,7 @@ import { StudyResponse } from "@/types/chatgpt";
 export const sendMessageToApi = async (
   email: string,
   message: string,
+  subjectName: string,
 ): Promise<string> => {
   try {
     const response = await fetch("http://localhost:4040/namu/v2/study/ask", {
@@ -12,7 +13,7 @@ export const sendMessageToApi = async (
       },
       body: JSON.stringify({
         email: email,
-        subjectName: "자료구조",
+        subjectName,
         question: message,
       }),
     });

@@ -18,15 +18,17 @@ export default function ModalProvider({ children }: { children: ReactNode }) {
     setPortalElement(document.querySelector("#modal-root") as HTMLElement);
   }, []);
 
-  return portalElement && visible
-    ? createPortal(
-        <>
+  return (
+    <>
+      {children}
+      {portalElement &&
+        visible &&
+        createPortal(
           <div className={styles.wrapper}>
             <Modal title={title} content={content} />
-          </div>
-          {children}
-        </>,
-        portalElement!,
-      )
-    : children;
+          </div>,
+          portalElement!,
+        )}
+    </>
+  );
 }

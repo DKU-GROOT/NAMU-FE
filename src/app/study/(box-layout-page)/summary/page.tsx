@@ -27,7 +27,7 @@ export default function Page() {
           <p className={styles.content}>{summary.summary}</p>
         </>
       ) : (
-        <h1 className={styles.title}>로딩 중 ...</h1>
+        <h1 className={styles.title}>학습 내용 요약 중 ...</h1>
       )}
     </div>
   );
