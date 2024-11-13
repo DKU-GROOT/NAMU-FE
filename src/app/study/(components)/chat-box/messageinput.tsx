@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { styles } from "../styles.css";
+import { styles } from "../../(box-layout-page)/chat/styles.css";
 
 interface MessageInputProps {
   onSendMessage: (message: string) => void;

@@ -18,6 +18,14 @@ export const styles = {
     marginRight: "10px",
   }),
 
+  messageInputWrapper: style({
+    display: "flex",
+    alignItems: "center",
+    padding: "10px 20px",
+    width: "100%",
+    height: "70px",
+  }),
+
   subjectinfo: style({
     flexGrow: "1",
   }),
@@ -61,7 +69,8 @@ export const styles = {
     gap: "10px",
     padding: "15px 20px",
     borderRadius: "10px",
-    height: "400px",
+    width: "100%",
+    height: "72%",
     overflowY: "auto",
     backgroundColor: "#F6FBF4",
   }),
@@ -96,7 +105,7 @@ export const styles = {
     alignItems: "center",
     padding: "10px 20px",
     marginTop: "10px",
-    width: "1002px",
+    width: "100%",
     height: "70px",
     marginBottom: "20px",
   }),
@@ -107,7 +116,7 @@ export const styles = {
     border: "1px solid #ddd",
     borderRadius: "20px 0 0 20px",
     marginRight: "10px",
-    width: "886px",
+    width: "740px",
     height: "70px",
     backgroundColor: "white",
     borderStyle: "none",
@@ -133,7 +142,7 @@ export const styles = {
   }),
 
   container: style({
-    maxWidth: "1057px",
+    maxWidth: "856.67px",
     maxHeight: "878px",
     margin: "60px auto",
     display: "flex",
