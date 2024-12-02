@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Summary } from "@/api/summary";
@@ -10,9 +11,14 @@ import * as styles from "./styles.css";
 
 export default function Page() {
   const [summary, setSummary] = useState<SummaryResponse>();
+  const params = useSearchParams();
 
   const fetchSummary = async () => {
-    const response = await Summary.getResult();
+    const subjectName = params.get("subjectName");
+
+    if (!subjectName) return;
+
+    const response = await Summary.getResult(subjectName);
     setSummary(response);
   };
   useEffect(() => {

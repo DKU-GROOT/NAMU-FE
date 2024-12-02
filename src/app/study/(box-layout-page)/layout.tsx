@@ -59,7 +59,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <div className={styles.container}>
         <header className={styles.header}>
           <HeaderContent
-            title="컴퓨터 네트워크"
+            title={params.get("subjectName") ?? ""}
             scrap={10}
             like={20}
             buttonInfoList={handleButtonInfoList()}

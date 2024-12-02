@@ -1,13 +1,13 @@
 import { ScoreResponse, TestResponse, UserAnswer } from "@/types/test";
 
 export const Test = {
-  async generate() {
+  async generate(subjectName: string) {
     const response = await fetch("http://localhost:4040/namu/v2/study/exam", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: localStorage.getItem("email"),
-        subjectName: "네트워크",
+        subjectName,
       }),
     });
     const data = (await response.json()) as TestResponse;

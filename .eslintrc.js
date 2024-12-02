@@ -24,6 +24,7 @@ module.exports = {
     "unicorn/better-regex": "off",
     "unicorn/no-useless-undefined": "off",
     "simple-import-sort/imports": "error",
+    "react-hooks/exhaustive-deps": "off",
     "simple-import-sort/exports": "error",
     "import/first": "error",
     "import/newline-after-import": "error",

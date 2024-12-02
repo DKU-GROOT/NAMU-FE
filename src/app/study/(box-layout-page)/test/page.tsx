@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Test } from "@/api/test";
@@ -17,6 +18,7 @@ export default function Page() {
   const [examId, setExamId] = useState<number>();
   const [currentQuestionId, setCurrentQuestionId] = useState(0);
   const [questionList, setQuestionList] = useState<QuestionList[]>();
+  const params = useSearchParams();
   const { open } = useModal();
   const [answer, setAnswer] = useState(
     Array.from({ length: 5 }).map((_, index) => ({
@@ -26,7 +28,11 @@ export default function Page() {
   );
 
   const fetchTest = async () => {
-    const response = await Test.generate();
+    const subjectName = params.get("subjectName");
+
+    if (!subjectName) return;
+
+    const response = await Test.generate(subjectName);
     setQuestionList(
       Object.entries(response)
         .slice(4)

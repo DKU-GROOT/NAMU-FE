@@ -1,7 +1,7 @@
 import { SummaryResponse } from "@/types/summary";
 
 export const Summary = {
-  async getResult() {
+  async getResult(subjectName: string) {
     const response = await fetch(
       "http://localhost:4040/namu/v2/study/summary",
       {
@@ -9,7 +9,7 @@ export const Summary = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email: "gaeunnnleee@gmail.com",
-          subjectName: "네트워크",
+          subjectName,
         }),
       },
     );
