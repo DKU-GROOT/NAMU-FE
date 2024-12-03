@@ -45,7 +45,9 @@ const Header = () => {
             <li className={styles.listItem}>토론</li>
             <li className={styles.listItem}>내 공부</li>
             <li className={styles.listItem}>알림</li>
-            <li className={styles.listItem}>메뉴</li>
+            <li className={styles.listItem}>
+              <a href="./menu">메뉴</a>
+            </li>
           </ul>
         </nav>
       </div>

@@ -1,3 +1,8 @@
+export interface NicknamecheckResponse {
+  code: string;
+  message: string;
+}
+
 export interface EmailResponse {
   code: string;
   message: string;

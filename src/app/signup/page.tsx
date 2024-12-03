@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import {
   EmailcheckResponse,
   EmailResponse,
+  NicknamecheckResponse,
   SignupResponse,
 } from "../../types/signup";
 import { styles } from "./styles.css";
@@ -15,12 +16,16 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [certificationNumber, setCertificationNumber] = useState("");
+  const [isNickname, setIsNicknameSent] = useState(false);
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [verificationStatus, setVerificationStatus] = useState("");
+  const [isNicknameAvailable, setIsNicknameAvailable] = useState(false);
   const [isCertificationVerified, setIsCertificationVerified] = useState(false);
 
   const handleNicknameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.target.value);
+    setIsNicknameAvailable(false);
+    setIsNicknameSent(false);
   };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +69,8 @@ export default function Home() {
               break;
             }
             case "DI": {
-              alert(message);
+              //alert(message);
+              alert("중복된 이메일입니다.");
               break;
             }
             case "DBE": {
@@ -106,7 +112,8 @@ export default function Home() {
               break;
             }
             case "CF": {
-              alert(message);
+              //alert(message);
+              alert("인증번호를 다시 확인해주세요");
               break;
             }
             case "DBE": {
@@ -132,6 +139,7 @@ export default function Home() {
       .then((response) => {
         if (response.data.code === "SU") {
           alert("회원가입이 성공적으로 완료되었습니다.");
+          window.location.href = "/login";
         } else {
           alert("회원가입 실패: " + response.data.message);
         }
@@ -160,6 +168,50 @@ export default function Home() {
       });
   };
 
+  const handlenicknameCheck = () => {
+    axios
+      .post<NicknamecheckResponse>(
+        "http://localhost:4040/namu/v2/auth/nickname-check",
+        {
+          nickname,
+        },
+      )
+      .then((response) => {
+        if (response.data.code === "SU") {
+          alert("닉네임 사용이 가능합니다.");
+          setIsNicknameAvailable(true);
+          setIsNicknameSent(true);
+        } else {
+          alert("닉네임 생성 실패: " + response.data.message);
+          setIsNicknameAvailable(false);
+        }
+      })
+      .catch((error) => {
+        setIsNicknameAvailable(false);
+        if (error.response) {
+          const { code, message } = error.response.data;
+          switch (code) {
+            case "VF": {
+              alert(message);
+              break;
+            }
+            case "DI": {
+              //alert(message);
+              alert("중복 닉네임입니다.");
+              break;
+            }
+            case "DBE": {
+              alert(message);
+              break;
+            }
+            default: {
+              alert("닉네임을 확인해주세요.");
+            }
+          }
+        }
+      });
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.singupBox}>
@@ -179,15 +231,27 @@ export default function Home() {
                 </header>
 
                 <div className={styles.inputGroup}>
-                  <input
-                    className={styles.inputStyle}
-                    type="text"
-                    placeholder="닉네임을 입력해주세요"
-                    name="nickname"
-                    value={nickname}
-                    onChange={handleNicknameChange}
-                    required
-                  />
+                  <div className={styles.emailWrapper}>
+                    <input
+                      className={styles.inputStyle}
+                      type="text"
+                      placeholder="닉네임을 입력해주세요"
+                      name="nickname"
+                      value={nickname}
+                      onChange={handleNicknameChange}
+                      required
+                    />
+
+                    <button
+                      type="button"
+                      className={styles.sendButton}
+                      onClick={handlenicknameCheck}
+                      disabled={isNickname}
+                    >
+                      {isNickname ? "확인됨" : "중복 확인"}
+                    </button>
+                  </div>
+
                   <input
                     className={styles.inputStyle}
                     type="password"
@@ -213,7 +277,7 @@ export default function Home() {
                       onClick={sendEmailVerification}
                       disabled={isEmailSent}
                     >
-                      {isEmailSent ? "전송 완료" : "이메일 전송"}
+                      {isEmailSent ? "전송 완료" : "전송"}
                     </button>
                   </div>
 
@@ -244,7 +308,7 @@ export default function Home() {
                 <button
                   className={styles.buttonStyle}
                   type="submit"
-                  disabled={!isCertificationVerified}
+                  disabled={!isCertificationVerified || !isNicknameAvailable}
                 >
                   가입하기
                 </button>
