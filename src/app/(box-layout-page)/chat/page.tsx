@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 
 import { sendMessageToApi } from "@/api/chat";
-import ChatArea from "@/app/study/(components)/chat-box/chat-area";
-import MessageInput from "@/app/study/(components)/chat-box/messageinput";
+import ChatArea from "@/app/(components)/chat-box/chat-area";
+import MessageInput from "@/app/(components)/chat-box/messageinput";
 
 export default function Page({
   searchParams,

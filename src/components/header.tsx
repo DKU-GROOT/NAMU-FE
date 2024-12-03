@@ -1,6 +1,10 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+
+import Logo from "@/assets/images/logo.png";
 
 import { styles } from "./styles.css";
 
@@ -26,7 +30,14 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.contents}>
         <div>
-          <p className={styles.listItem}>나무로고</p>
+          <Link className={styles.listItem} href="/">
+            <Image
+              src={Logo.src}
+              width={Logo.width}
+              height={Logo.height}
+              alt=""
+            />
+          </Link>
         </div>
         <nav>
           <ul className={styles.navigation}>
@@ -41,10 +52,10 @@ const Header = () => {
                 </button>
               )}
             </li>
+            {/* <li className={styles.listItem}>내 공부</li>
             <li className={styles.listItem}>탐색</li>
             <li className={styles.listItem}>토론</li>
-            <li className={styles.listItem}>내 공부</li>
-            <li className={styles.listItem}>알림</li>
+            <li className={styles.listItem}>알림</li> */}
             <li className={styles.listItem}>
               <a href="./menu">메뉴</a>
             </li>
