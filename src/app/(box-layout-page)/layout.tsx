@@ -17,38 +17,38 @@ export default function Layout({ children }: { children: ReactNode }) {
   }, [params]);
 
   const handleButtonInfoList = () => {
-    const split = pathname.split(`/study/`);
+    const split = pathname.split(`/`);
     const page = split.at(-1);
     const content = {
       test: [
         {
           name: "나가기",
-          link: `/study`,
+          link: `/`,
         },
       ],
       chat: [
         {
           name: "학습 종료",
-          link: `/study/summary?id=${studyId}&subjectName=${subjectName}`,
+          link: `/summary?id=${studyId}&subjectName=${subjectName}`,
         },
       ],
       summary: [
         {
           name: "테스트",
-          link: `/study/test?id=${studyId}&subjectName=${subjectName}`,
+          link: `/test?id=${studyId}&subjectName=${subjectName}`,
         },
-        { name: "나가기", link: `/study` },
+        { name: "나가기", link: `/` },
       ],
     };
     return (
       content[page as keyof typeof content] ?? [
         {
           name: "학습",
-          link: `/study/chat?id=${page}&subjectName=${subjectName}`,
+          link: `/chat?id=${page}&subjectName=${subjectName}`,
         },
         {
           name: "테스트",
-          link: `/study/test?id=${page}&subjectName=${subjectName}`,
+          link: `/test?id=${page}&subjectName=${subjectName}`,
         },
       ]
     );

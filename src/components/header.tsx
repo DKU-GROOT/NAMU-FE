@@ -30,12 +30,13 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.contents}>
         <div>
-          <Link className={styles.listItem} href="/">
+          <Link href="/">
             <Image
               src={Logo.src}
-              width={Logo.width}
-              height={Logo.height}
+              width={100}
+              height={100}
               alt=""
+              style={{ marginTop: "-10px" }}
             />
           </Link>
         </div>

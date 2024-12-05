@@ -15,7 +15,7 @@ export default function StudyListItem({
 }: StudyListItemProps) {
   return (
     <Link
-      href={`/study/chat?id=${id}&subjectName=${title}`}
+      href={`/chat?id=${id}&subjectName=${title}`}
       className={styles.studyListItem}
     >
       <div className={styles.studyListThumbnail} />

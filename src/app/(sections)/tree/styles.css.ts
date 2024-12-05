@@ -15,6 +15,37 @@ export const treeWrapper = style({
   height: 400,
   borderRadius: 20,
   backgroundImage: `url(${TreeImage.src})`,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+});
+
+globalStyle(`${treeWrapper} img`, {
+  width: "100%",
+  height: "auto",
+  // marginTop: 100,
+});
+
+export const infoTagContainer = style({
+  display: "flex",
+  width: "100%",
+  gap: 10,
+  justifyContent: "space-around",
+});
+
+export const infoTag = style({
+  borderRadius: 20,
+  fontSize: 15,
+  fontWeight: 500,
+  color: "#545454",
+  backgroundColor: "#FFF8BC",
+  padding: "10px 20px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  lineHeight: "25px",
+  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
+  border: 0,
 });
 
 export const treeGrowthButton = style({

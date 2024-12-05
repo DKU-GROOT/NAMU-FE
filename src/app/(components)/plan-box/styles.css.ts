@@ -21,6 +21,12 @@ export const planList = style({
   gap: 10,
 });
 
+export const planItem = style({
+  display: "flex",
+  alignItems: "center",
+  gap: 5,
+});
+
 export const planInputSection = style({
   display: "flex",
   gap: 6,
@@ -46,4 +52,5 @@ export const planButton = style({
   borderRadius: "0 40px 40px 0",
   width: 60,
   paddingRight: 5,
+  cursor: "pointer",
 });

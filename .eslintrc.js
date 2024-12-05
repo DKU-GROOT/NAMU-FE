@@ -22,6 +22,8 @@ module.exports = {
     "unicorn/no-null": "off",
     "unicorn/prefer-module": "off",
     "unicorn/better-regex": "off",
+    "unicorn/better-regex": "off",
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/no-useless-undefined": "off",
     "simple-import-sort/imports": "error",
     "react-hooks/exhaustive-deps": "off",

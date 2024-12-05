@@ -21,7 +21,11 @@ export default function PlanSection() {
       content: planHistory.map((item) => (
         <>
           계획
-          <PlanBox key={item.date} planData={undefined} />
+          <PlanBox
+            key={item.date}
+            planData={undefined}
+            updateCheckList={setCheckList}
+          />
         </>
       )),
     });
@@ -45,7 +49,7 @@ export default function PlanSection() {
           <button onClick={fetchCheckList}>편집</button>
         </div>
       </header>
-      <PlanBox planData={checkList} enterMode />
+      <PlanBox planData={checkList} enterMode updateCheckList={setCheckList} />
     </section>
   );
 }
