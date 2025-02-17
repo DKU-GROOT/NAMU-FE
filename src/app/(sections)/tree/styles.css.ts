@@ -31,6 +31,7 @@ export const infoTagContainer = style({
   width: "100%",
   gap: 10,
   justifyContent: "space-around",
+  zIndex: 10,
 });
 
 export const infoTag = style({
@@ -77,4 +78,45 @@ globalStyle(`${treeGrowthButton} span`, {
   lineHeight: "25px",
   display: "flex",
   alignItems: "center",
+});
+
+export const shopItemList = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "24px",
+  marginTop: "10px",
+});
+
+export const shopItemWrapper = style({
+  backgroundColor: "#F7F7F7",
+  display: "flex",
+  justifyContent: "space-between",
+  padding: "11px 13px",
+  alignItems: "center",
+  borderRadius: "20px",
+  gap: "24px",
+});
+
+export const shopItemImageWrapper = style({
+  backgroundColor: "white",
+  padding: "15px",
+  borderRadius: "20px",
+});
+
+export const shopItemImage = style({
+  width: "75px",
+  height: "75px",
+  backgroundSize: "cover",
+});
+
+export const shopItemInfo = style({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  flex: 1,
+  gap: "4px",
+});
+
+export const shopItemPoint = style({
+  color: "#28B02E",
 });

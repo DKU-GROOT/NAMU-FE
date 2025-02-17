@@ -11,7 +11,7 @@ export default function Button({
   ...props
 }: {
   value: string;
-  theme?: "primary";
+  theme?: "primary" | "secondary";
   size?: "full" | "fit";
 } & ButtonProps) {
   return (
