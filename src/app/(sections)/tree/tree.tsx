@@ -15,6 +15,16 @@ import * as styles from "./styles.css";
 type InfoTagKey = "level" | "point" | "shop";
 
 export default function TreeSection() {
+  const treeData = {
+    level: 1,
+    items: [
+      { id: "apple", position: [150, "", "", 100] },
+      { id: "puppy", position: ["", 50, 10, ""] },
+      { id: "squirrel", position: [190, 80, "", ""] },
+      { id: "flower", position: [100, 100, "", ""] },
+    ],
+  };
+
   const infoTagData = {
     level: { data: "Lv.5", color: "#ECF3BD", link: undefined },
     point: { data: "320 p", color: "#FFF5E2", link: undefined },
@@ -64,12 +74,32 @@ export default function TreeSection() {
           ))}
         </div>
         <div className={styles.treeWrapper}>
-          <Image
-            src={Tree.src}
-            width={Tree.width}
-            height={Tree.height}
-            alt="tree"
-          />
+          <div
+            style={{
+              backgroundImage: `url('${Tree.src}')`,
+              backgroundSize: "cover",
+              width: "400px",
+              height: "400px",
+              position: "relative",
+            }}
+          >
+            {treeData.items.map((item) => (
+              <div
+                key={item.id}
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  backgroundSize: "cover",
+                  backgroundImage: `url('${shopItem[item.id as keyof typeof shopItem].src}')`,
+                  position: "absolute",
+                  top: item.position[0],
+                  right: item.position[1],
+                  bottom: item.position[2],
+                  left: item.position[3],
+                }}
+              />
+            ))}
+          </div>
         </div>
         <button className={styles.treeGrowthButton}>
           <span>
